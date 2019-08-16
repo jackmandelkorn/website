@@ -1,6 +1,167 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
 body {
   margin: 0px;
   padding: 0px;
   font-family: "IBM Plex Sans", sans-serif;
   background: #F5F9FA;
+  transition: opacity ease 0.5s;
+  -webkit-transition: opacity ease 0.5s;
+  -ms-transition: opacity ease 0.5s;
+}
+
+a {
+  color: #586371;
+  text-decoration: none;
+  border-bottom: 3px solid #247EFF;
+}
+
+#app {
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 5vmax;
+}
+
+#app section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#app section.left {
+  justify-content: flex-start;
+}
+
+#app section.center {
+  justify-content: center;
+}
+
+#app section.right {
+  justify-content: flex-end;
+}
+
+#app section.wrap {
+  flex-wrap: wrap;
+}
+
+#app section.apart {
+  justify-content: space-between;
+}
+
+#app section h1.name {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #247EFF;
+  cursor: default;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#app section h1.hero {
+  margin-top: 5vh;
+  font-size: 36px;
+  color: black;
+  font-weight: 500;
+}
+
+#app section p.hero-sub {
+  font-size: 20px;
+  margin-top: 1vh;
+  color: #586371;
+  font-weight: normal;
+  margin-bottom: 3vh;
+}
+
+#app section div.screen {
+  width: 281px;
+  height: 609px;
+  background-repeat: no-repeat;
+  background-position: -7px -7px;
+  background-size: 281px 609px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  transform: rotateX(0deg) rotateY(0deg) scale3d(1.0, 1.0, 1.0);
+  transition: all 0.2s ease-out 0s;
+  cursor: pointer;
+  border: 7px solid rgba(128,128,128,0.2);
+}
+
+#app section div.screen:active {
+  transform: rotateX(0deg) rotateY(0deg) scale3d(1.07, 1.07, 1.07) !important;
+}
+
+#app section div.screen:active > div.gloss {
+  opacity: 0 !important;
+}
+
+#app section div.screen div.gloss {
+  width: 281px;
+  height: 609px;
+  transition: opacity 0.2s ease-out 0s;
+  opacity: 0;
+  background: linear-gradient(315deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 80%);
+}
+
+#app section div.wrapper {
+  width: 281px;
+  height: 609px;
+  background-color: transparent;
+  transform-style: preserve-3d;
+  transform: perspective(800px);
+}
+
+#app section div.shadow {
+  position: relative;
+  margin: 40px;
+}
+
+#app section div.shadow::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  transition: box-shadow 0.2s ease-out 0s;
+  box-shadow: 0px 50px 100px 0px rgba(0, 0, 0, 0.30);
+}
+
+#app section div.shadow:hover::before {
+  box-shadow: 0px 50px 100px 0px rgba(0, 0, 0, 0.50);
+}
+
+#app section .icons {
+  display: flex;
+}
+
+#app section .icons a {
+  border: none;
+  margin: 0px 8px;
+}
+
+#app section .icons img {
+  width: 30px;
+  height: 30px;
+}
+
+#app section .icons a:last-child {
+  margin-right: 0px;
+}
+
+#app section .icons a:first-child {
+  margin-left: 0px;
 }
